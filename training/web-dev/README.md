@@ -1,7 +1,4 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
-
 - [Learning web development](#learning-web-development)
   - [Goal of this training](#goal-of-this-training)
   - [Principles](#principles)
@@ -22,20 +19,13 @@
       - [Version control (git)](#version-control-git)
   - [Other lists](#other-lists)
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-<!--TOC-->
-
 # Learning web development
-
 ## Goal of this training
-
 This training provides an opinionated ramp-up program for web developers.
 
 Prerequisites: not much, just general knowledge about computers and the Internet.
 
 ## Principles
-
 - Focus on the main stuff. A lot of things are learnt on the job anyway.
 - Programming is not only about raw technical knowledge,
   it's also about best practices.
@@ -48,7 +38,6 @@ Note: this is just a short selection of stuff listed in
 [charlax/professional-programming](https://github.com/charlax/professional-programming).
 
 ### Meta: learning about learning
-
 Feel free to checkout some of the articles about [Learning and memorizing](https://github.com/charlax/professional-programming#learning--memorizing)
 
 - Create a learning plan with your learning priorities
@@ -56,21 +45,18 @@ Feel free to checkout some of the articles about [Learning and memorizing](https
 - Enjoy the learning experience!
 
 ## Roadmap
-
 1. Start with a programming language.
 2. Do a first pass at the web development environment (see introductory resources below)
     - HTTP and web architecture basics
     - Git
-    - Docker and `docker-compose`
+    - Docker and docker-compose
     - Command line
     - Text editor
 3. Write a full-fledged exercise, get it reviewed.
 4. Do the advanced topics
 
 ## Approach
-
 ### Pick a powerful text editor and learn its ins and outs
-
 VSCode is a strong pick nowadays (I use and obviously prefer Vim :).
 
 Make sure to spend a lot of time in your text editor, watch tutorials about
@@ -81,7 +67,6 @@ You will spend most of your time within your text editor. Turn it into
 a powerful ally!
 
 ### Learn the ins and outs of one programming language
-
 A developer's main tool being the programming language, it is important to
 achieve high proficiency in at least one of them.
 
@@ -115,7 +100,7 @@ Learn how to handle:
     - 🎞 [Wat](https://www.destroyallsoftware.com/talks/wat)
 
 If you have time, learn more programming languages, starting with some that are
-*very* different from your main one:
+very different from your main one:
 
 - Haskell
 - Clojure
@@ -124,9 +109,7 @@ If you have time, learn more programming languages, starting with some that are
 - Assembly
 
 ## Topic-specific materials
-
 #### Best practices, attitude
-
 Read one of those:
 
 - 📖 [The Pragmatic Programmer: From Journeyman to
@@ -138,7 +121,6 @@ Read one of those:
 Read the resources listed under [Must-read articles](https://github.com/charlax/professional-programming#must-read-articles).
 
 #### Code architecture and design patterns
-
 Introduction:
 
 - Learn about OOP basics: inheritance, abstract/concrete, public/private
@@ -165,7 +147,6 @@ Advanced:
 - 🎞 [Zebras All the Way Down](https://youtu.be/fE2KDzZaxvE), Bryan Cantrill
 
 #### DB and SQL
-
 Introduction:
 
 - Learn basic and advanced SQL: joins, indexes, subqueries.
@@ -178,7 +159,6 @@ Advanced:
     - 🎞 [Watch this Python introduction to ORMs](https://www.youtube.com/watch?v=P141KRbxVKc&ab_channel=PyCon2014) (with SQLAlchemy)
 
 #### Dev environment, command line and Linux
-
 Introduction:
 
 - [jlevy/the-art-of-command-line](https://github.com/jlevy/the-art-of-command-line): master the command line, in one page
@@ -200,7 +180,6 @@ Advanced:
 - 🎞 [Containers From Scratch](https://www.youtube.com/watch?v=8fi7uSYlOdc&ab_channel=GOTOConferences)
 
 #### Distributed systems and system architecture
-
 Introduction:
 
 - [donnemartin/system-design-primer](https://github.com/donnemartin/system-design-primer): learn how to design large-scale systems.
@@ -225,7 +204,6 @@ Concepts to look into:
 - Monitoring and alerting best practices
 
 #### Network, protocols, HTTP
-
 Introduction:
 
 - [How Does the Internet Work?](https://web.stanford.edu/class/msande91si/www-spr04/readings/week1/InternetWhitepaper.htm)
@@ -239,7 +217,6 @@ Advanced:
 - Learn about important web-related protocols: DNS, SMTP, SSH
 
 #### Project management
-
 Introduction:
 
 - [Efficient Software Project Management at its Roots](https://blog.pragmaticengineer.com/efficient-software-project-management-at-its-roots/)
@@ -251,7 +228,6 @@ Advanced:
 - Checkout this section on [charlax/engineering-management](https://github.com/charlax/engineering-management#project-management)
 
 #### Security
-
 Introduction:
 
 - Learn about the OWASP Top 10
@@ -261,7 +237,6 @@ Advanced:
 - Consider reading 📖 [Penetration Testing](https://nostarch.com/pentesting).
 
 #### Version control (git)
-
 Introduction:
 
 - [Resources to learn Git](https://try.github.io/)
@@ -270,13 +245,12 @@ Introduction:
 
 Advanced topics:
 
-- `git rebase`
-- `git stash`
-- `git revert`
-- The dangers of `git push --force`
+- git rebase
+- git stash
+- git revert
+- The dangers of git push --force
 
 ## Other lists
-
 - [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/) (MIT).
 - [What every computer science major should know](http://matt.might.net/articles/what-cs-majors-should-know/)
 - [Teach Yourself Computer Science](https://teachyourselfcs.com/)

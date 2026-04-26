@@ -1,25 +1,18 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
-
 - [MVCS Antipatterns](#mvcs-antipatterns)
   - [Creating entities for association tables](#creating-entities-for-association-tables)
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # MVCS Antipatterns
-
 In simple terms, Model-View-Controller-Services add a few more layers to the
 MVC pattern. The main one is the service, which owns all the core business
 logic and manipulate the repository layer.
 
 ## Creating entities for association tables
-
 You'll often need association tables, for instance to set up a many to many
 relationships between users and their toasters. Let's assume that a toaster can
 be owned by multiple users.
 
-It might be tempting to create a `UserToaster` entity for this relationship,
+It might be tempting to create a UserToaster entity for this relationship,
 especially if this relationship has some complex attributes associated with
 (for instance, since when the toaster is owned by the user).
 
@@ -49,7 +42,7 @@ Heart of Software. Pearson Education. Kindle Edition.
 Entities should model business processes, not persistence details
 ([source](http://blog.sapiensworks.com/post/2013/05/13/7-Biggest-Pitfalls-When-Doing-Domain-Driven-Design.aspx/)).
 
-- In that case, `UserToaster` does not map to anything the business is using.
+- In that case, UserToaster does not map to anything the business is using.
   Using plain English, somebody might ask about "what toasters does user
   A owns?" or "who owns toaster B and since when?" Nobody would ask "give me
   the UserToaster for user A".
@@ -61,18 +54,18 @@ Entities should model business processes, not persistence details
 - It will be easier to handle serializing a "user having toasters" than
   serializing UserToaster association.
 - This will make it very easy to force the calling site to take care of some
-  business logic. For instance, you might be able to get all `UserToaster`, and
+  business logic. For instance, you might be able to get all UserToaster, and
   then filter on whether they were bought. You might be tempted to do that by
-  going through the `UserToaster` object and filtering those that have
-  `were_bought` to be True. At some point, you might be doing the same thing in
+  going through the UserToaster object and filtering those that have
+  were_bought to be True. At some point, you might be doing the same thing in
   multiple places, which will decrease maintainability. If you were hiding that
-  logic in the repository, you wouldn't have that issue `find_bought_toasters`.
+  logic in the repository, you wouldn't have that issue find_bought_toasters.
 
 So in that case, I would recommend doing the following:
 
-- Create a `User` and `Toaster` entity.
+- Create a User and Toaster entity.
 - Put the association properties on the entity that makes sense, for instance
-  `owned_since` would be on `Toaster`, even though in the database it's stored
+  owned_since would be on Toaster, even though in the database it's stored
   on the association table.
 - If filtering on association properties is required, put this logic in
   repositories. In plain English, you would for instance ask "give all the

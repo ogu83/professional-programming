@@ -1,7 +1,4 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
-
 - [Test antipatterns](#test-antipatterns)
   - [Testing implementation](#testing-implementation)
   - [Testing configuration](#testing-configuration)
@@ -13,28 +10,20 @@
   - [Assertions in loop](#assertions-in-loop)
   - [Inverted testing pyramid](#inverted-testing-pyramid)
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # Test antipatterns
-
 ## Testing implementation
-
 TODO
 
 ## Testing configuration
-
 TODO
 
 ## Testing multiple things
-
 TODO
 
 ## Repeating integration tests for minor variations
-
 TODO
 
 ## Over-reliance on centralized fixtures
-
 Bad:
 
 ```python
@@ -65,7 +54,7 @@ efficient part of the developer flow.
 
 Lastly, this separate the setup and running part of the tests. It makes it more
 difficult for a new engineer to understand what is specific about this test's
-setup without having to open the `fixtures` file.
+setup without having to open the fixtures file.
 
 Here's a more explicit way to do this. Most fixtures libraries allow you to
 override default parameters, so that you can make clear what setup is specific
@@ -78,11 +67,9 @@ def test_stuff():
 ```
 
 ## Over-reliance on replaying external requests
-
 TODO
 
 ## Inefficient query testing
-
 Bad:
 
 ```python
@@ -118,7 +105,6 @@ One would also recommend to not do this kind of integration testing for queries
 going to the database, but sometimes it's a good tradeoff.
 
 ## Assertions in loop
-
 Bad:
 
 ```python
@@ -146,10 +132,9 @@ list contains only one item. If we're checking more than one item, that hints
 at our test trying to do too many things.
 
 ## Inverted testing pyramid
-
 ![Test Pyramid](/images/test-pyramid.png)
 
-_The [test pyramid](https://martinfowler.com/bliki/TestPyramid.html). Image courtesy of Martin Fowler._
+The [test pyramid](https://martinfowler.com/bliki/TestPyramid.html). Image courtesy of Martin Fowler.
 
 Building lots of automated comprehensive end-to-end tests was tried multiple time, and almost never worked.
 

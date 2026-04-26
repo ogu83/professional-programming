@@ -1,7 +1,4 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
-
 - [Antipatterns](#antipatterns)
   - [Strict email validation](#strict-email-validation)
   - [Late returns](#late-returns)
@@ -18,15 +15,11 @@
   - [Returning nothing instead of raising NotFound exception](#returning-nothing-instead-of-raising-notfound-exception)
   - [Having a library that contains all utils](#having-a-library-that-contains-all-utils)
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # Antipatterns
-
 Most of those are antipatterns in the Python programming language, but some of
 them might be more generic.
 
 ## Strict email validation
-
 It is almost impossible to strictly validate an email. Even if you were writing
 or using a regex that follows
 [RFC5322](http://tools.ietf.org/html/rfc5322#section-3.4), you would have false
@@ -37,11 +30,10 @@ more meaningful validation would be to send an email and validate that the user
 received it.
 
 To sum up, don't waste your time trying to validate an email if you don't need
-to (or just check that there's a `@` in it). If you need to, send an email with
+to (or just check that there's a @ in it). If you need to, send an email with
 a token and validate that the user received it.
 
 ## Late returns
-
 Returning early reduces cognitive overhead, and improve readability by killing
 indentation levels.
 
@@ -65,7 +57,6 @@ def toast(bread):
 ```
 
 ## Hacks comment
-
 Bad:
 
 ```python
@@ -78,7 +69,7 @@ There's multiple things wrong with this comment:
 - Even if it is actually a hack, no need to say it in a comment. It lowers the
   perceived quality of a codebase and impacts developer motivation.
 - Putting the author and the date is totally useless when using source control
-  (`git blame`).
+  (git blame).
 - This does not explain why it's temporary.
 - It's impossible to easily grep for temporary fixes.
 - [Louis de Funès](https://en.wikipedia.org/wiki/Louis_de_Fun%C3%A8s) would never
@@ -93,12 +84,11 @@ toaster.restart()
 ```
 
 - This clearly explains the nature of the temporary fix.
-- Using `TODO` is an ubiquitous pattern that allows easy grepping and plays
+- Using TODO is an ubiquitous pattern that allows easy grepping and plays
   nice with most text editors.
 - The perceived quality of this temporary fix is much higher.
 
 ## Repeating arguments in function name
-
 Bad:
 
 ```python
@@ -118,7 +108,6 @@ def get(color=None):
 ```
 
 ## Repeating class name in method name
-
 Bad:
 
 ```python
@@ -127,7 +116,7 @@ class Toasters(object):
         pass
 ```
 
-This is bad because it's unnecessarily redundant (`Toasters.get_toaster(1)`). According to the single responsibility principle, a class should focus on one area of responsibility. So the `Toasters` class should only focus on toasters object.
+This is bad because it's unnecessarily redundant (Toasters.get_toaster(1)). According to the single responsibility principle, a class should focus on one area of responsibility. So the Toasters class should only focus on toasters object.
 
 Good:
 
@@ -144,7 +133,6 @@ toaster = Toasters.get(1)
 ```
 
 ## Repeating function name in docstring
-
 Bad:
 
 ```python
@@ -174,7 +162,6 @@ def test_brioche_are_valid_toast():
 ```
 
 ## Unreadable response construction
-
 TODO
 
 Bad:
@@ -203,7 +190,6 @@ def get_data():
 ```
 
 ## Undeterministic tests
-
 When testing function that don't behave deterministically, it can be tempting
 to run them multiple time and average their results.
 
@@ -230,7 +216,7 @@ def test_function():
 There are multiple things that are wrong with this approach:
 
 - This is a flaky test. Theoretically, this test could still fail.
-- This example is simple enough, but `function` might be doing some
+- This example is simple enough, but function might be doing some
   computationally expensive task, which would make this test severely
   inefficient.
 - The test is quite difficult to understand.
@@ -247,7 +233,6 @@ def test_function(mock_random):
 This is a deterministic test that clearly tells what's going on.
 
 ## Unbalanced boilerplate
-
 One thing to strive for in libraries is have as little boilerplate as possible,
 but not less.
 
@@ -263,7 +248,6 @@ library.
 I think Flask and SQLAlchemy do a very good job at keeping this under control.
 
 ## Inconsistent use of verbs in functions
-
 Bad:
 
 ```python
@@ -284,16 +268,16 @@ def find_toasts(color):
     return filter(lambda toast: toast.color == color, TOASTS)
 ```
 
-The use of verb is inconsistent in this example. `get` is used to return
-a possibly empty list of toasters, and `find` is used to return a single
+The use of verb is inconsistent in this example. get is used to return
+a possibly empty list of toasters, and find is used to return a single
 toaster (or raise an exception) in the second function or a possibly empty list
 of toasts in the third function.
 
 This is based on personal taste but I have the following rule:
 
-- `get` prefixes function that return at most one object (they either return
+- get prefixes function that return at most one object (they either return
   none or raise an exception depending on the cases)
-- `find` prefixes function that return a possibly empty list (or iterable) of
+- find prefixes function that return a possibly empty list (or iterable) of
   objects.
 
 Good:
@@ -317,7 +301,6 @@ def find_toasts(color):
 ```
 
 ## Opaque function arguments
-
 A few variants of what I consider code that is difficult to debug:
 
 ```python
@@ -340,7 +323,7 @@ def create2(*args, **kwargs):
 Why is this bad?
 
 - It's really easy to make a mistake, especially in interpreted languages such
-  as Python. For instance, if I call `create({'name': 'hello', 'ccolor': 'blue'})`, I won't get any error, but the color won't be the one I expect.
+  as Python. For instance, if I call create({'name': 'hello', 'ccolor': 'blue'}), I won't get any error, but the color won't be the one I expect.
 - It increases cognitive load, as I have to understand where the object is
   coming from to introspect its content.
 - It makes the job of static analyzer harder or impossible.
@@ -356,7 +339,6 @@ def create(name, color='red'):
 ```
 
 ## Hiding formatting
-
 Bad:
 
 ```python
@@ -377,7 +359,7 @@ def get_url(user_id):
     return 'http://127.0.0.1/users/%s' % user_id
 ```
 
-I consider this an antipattern because it hides the request formatting from the developer, making it more complex to see what `url` look like. In this extreme example, the formatting function is a one-liner which sounds a bit overkill for
+I consider this an antipattern because it hides the request formatting from the developer, making it more complex to see what url look like. In this extreme example, the formatting function is a one-liner which sounds a bit overkill for
 a function.
 
 Good:
@@ -394,7 +376,6 @@ Even if you were duplicating the logic once or twice it might still be fine, bec
 - Putting this inline makes it easier for follow the flow. Code is written to be read primarily by computers.
 
 ## Returning nothing instead of raising NotFound exception
-
 Bad in certain cases:
 
 ```python
@@ -411,9 +392,9 @@ def toast(toaster_id):
     toaster.toast("brioche")
 ```
 
-It all depends on the caller, but in this cases I'd argue that it is bad practice to return nothing when the toaster identified by `toaster_id` can't be found, for two main reasons.
+It all depends on the caller, but in this cases I'd argue that it is bad practice to return nothing when the toaster identified by toaster_id can't be found, for two main reasons.
 
-**First reason**: when we provide an identifier, we expect it to return something. Once again, this depends on the caller (for instance, we could try to see if a user exists by checking an email for instance). In this simple example it's ok because the `toaster.toast()` will fail immediately, but what if we were never calling it and creating some other unrelated objects? We would be doing things that we should never be doing if the object did not exist:
+First reason: when we provide an identifier, we expect it to return something. Once again, this depends on the caller (for instance, we could try to see if a user exists by checking an email for instance). In this simple example it's ok because the toaster.toast() will fail immediately, but what if we were never calling it and creating some other unrelated objects? We would be doing things that we should never be doing if the object did not exist:
 
 ```python
 def toast(toaster_id, user):
@@ -423,7 +404,7 @@ def toast(toaster_id, user):
     bill_new_toaster(user)
 ```
 
-**Second reason**: `toaster.toast` will fail anyway if `toaster` is none (in Python with `AttributeError: NoneType has no attribute toast`). In this abstract example it's ok because the two lines are next to each other, but the actual `toaster.toast()` call might happen further down the stack - and it will be very difficult for the developer to understand where the error is coming from.
+Second reason: toaster.toast will fail anyway if toaster is none (in Python with AttributeError: NoneType has no attribute toast). In this abstract example it's ok because the two lines are next to each other, but the actual toaster.toast() call might happen further down the stack - and it will be very difficult for the developer to understand where the error is coming from.
 
 ```python
 def toast(toaster_id, user):
@@ -446,10 +427,9 @@ def do_stuff_b(toaster):
 What's the correct things to do?
 
 - If you expect the object to be there, make sure to raise if you don't find it.
-- If you're using SQLAlchemy, use `one()` to force raising an exception if the object can't be found. Don't use `first` or `one_or_none()`.
+- If you're using SQLAlchemy, use one() to force raising an exception if the object can't be found. Don't use first or one_or_none().
 
 ## Having a library that contains all utils
-
 Bad:
 
 ```python
@@ -465,6 +445,6 @@ def upload_to_sftp(...):
     ...
 ```
 
-`util` or `tools` or `lib` modules that contain all sorts of utilities have a tendency to become bloated and unmaintainable. Prefer to have small, dedicated files.
+util or tools or lib modules that contain all sorts of utilities have a tendency to become bloated and unmaintainable. Prefer to have small, dedicated files.
 
-This will keep your imports logical (`lib.date_utils`, `lib.csv_utils`, `lib.sftp`), make it easier for the reader to identify all the utilities around a specific topic, and test files easy to keep organized.
+This will keep your imports logical (lib.date_utils, lib.csv_utils, lib.sftp), make it easier for the reader to identify all the utilities around a specific topic, and test files easy to keep organized.

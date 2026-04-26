@@ -1,0 +1,196 @@
+{
+  "main": {
+    "id": "d77bbf99b3765037",
+    "type": "split",
+    "children": [
+      {
+        "id": "8f031665e62ca6a3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e72fde3294447d3a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "list-of-links/List of AI and LLM learning resources 20260104144118.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "List of AI and LLM learning resources 20260104144118"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0774b362874cd06c",
+    "type": "split",
+    "children": [
+      {
+        "id": "8cad0d6fbeb3195b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a2bc78ba7af1428f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "c8a54dd7d2cbd63c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "7f7f948c470b5dd6",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "010aa60b4303838d",
+    "type": "split",
+    "children": [
+      {
+        "id": "a14b19853641d308",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f1cd867578436838",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "list-of-links/List of AI and LLM learning resources 20260104144118.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for List of AI and LLM learning resources 20260104144118"
+            }
+          },
+          {
+            "id": "9579b25523df0696",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "list-of-links/List of AI and LLM learning resources 20260104144118.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from List of AI and LLM learning resources 20260104144118"
+            }
+          },
+          {
+            "id": "974a438394b77c88",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "c976a302ca46cdd2",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "34166b9ba73a3fff",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "list-of-links/List of AI and LLM learning resources 20260104144118.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of List of AI and LLM learning resources 20260104144118"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "e72fde3294447d3a",
+  "lastOpenFiles": [
+    "antipatterns/mvcs-antipatterns.md",
+    "README.md",
+    "antipatterns/sqlalchemy-antipatterns.md",
+    "training/front-end/img/js-the-good-parts.jpg",
+    "cheatsheets/Clean-Architecture-V1.0.pdf",
+    "antipatterns/error-handling-antipatterns.md",
+    "antipatterns/images/test-pyramid.png"
+  ]
+}

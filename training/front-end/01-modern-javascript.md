@@ -1,7 +1,4 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
-
 - [Modern JavaScript](#modern-javascript)
   - [Objectives of this course](#objectives-of-this-course)
   - [Prerequisites](#prerequisites)
@@ -12,23 +9,23 @@
     - [Undefined everywhere!](#undefined-everywhere)
     - [Printing and interacting with the console](#printing-and-interacting-with-the-console)
     - [Casting](#casting)
-      - [Always use triple comparators (`===`) instead of double (`==`)](#always-use-triple-comparators--instead-of-double-)
+      - [Always use triple comparators (===) instead of double (==)](#always-use-triple-comparators--instead-of-double-)
     - [Primitive types vs. reference types](#primitive-types-vs-reference-types)
-    - [`Object` and `Array` methods](#object-and-array-methods)
+    - [Object and Array methods](#object-and-array-methods)
   - [Prototypes in JavaScript](#prototypes-in-javascript)
   - [Object literals, assignment and destructuring](#object-literals-assignment-and-destructuring)
     - [Objects](#objects)
     - [Array](#array)
-  - [`let` and `const`](#let-and-const)
+  - [let and const](#let-and-const)
     - [Hoisting](#hoisting)
   - [Arrow functions](#arrow-functions)
-    - [How `this` works in arrow functions](#how-this-works-in-arrow-functions)
+    - [How this works in arrow functions](#how-this-works-in-arrow-functions)
     - [Best practices](#best-practices)
   - [Classes](#classes)
   - [Template literals](#template-literals)
     - [Template tags](#template-tags)
   - [Loops](#loops)
-    - [`for... of`](#for-of)
+    - [for... of](#for-of)
   - [Promises](#promises)
     - [Creating a promise](#creating-a-promise)
     - [Consuming a promise](#consuming-a-promise)
@@ -43,35 +40,28 @@
   - [Self assessment](#self-assessment)
   - [References](#references)
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # Modern JavaScript
-
 Note: run code quickly with https://codesandbox.io/s/
 
 - JavaScript: https://codesandbox.io/s/front-end-training-014br
 
 ## Objectives of this course
-
 - Review the syntax of modern JavaScript features
 - Mention some JS best practices
 
 ## Prerequisites
-
 This course assumes you already have experience with JavaScript. If you don't, start with this:
 
 - [JavaScript First Steps](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps), MDN
 - [Learn JavaScript](https://learnjavascript.online/)
 
 ### Check your knowledge of JS
-
 - What are the main JS datatypes?
-  - `Number`, `String`, `Boolean`, `Object`, `Undefined`, `BigInt`
-- What does `1 / "a"` evaluate to?
-  - `NaN`
+  - Number, String, Boolean, Object, Undefined, BigInt
+- What does 1 / "a" evaluate to?
+  - NaN
 
 ## Introduction
-
 JavaScript is a programming language evolving very rapidly that can run in different environments:
 
 - Browser (the assumed target for this document).
@@ -81,27 +71,25 @@ JavaScript is a programming language evolving very rapidly that can run in diffe
 Key historical elements:
 
 - September 1995: LiveScript is released in the Netscape Navigator Browser. It was developed by Brendan Eich.
-- June 1997: Ecma International releases the first ECMAScript language _specification_. (note: the European Computer Manufacturers Association was founded in 1961 to standardize computer systems)
+- June 1997: Ecma International releases the first ECMAScript language specification. (note: the European Computer Manufacturers Association was founded in 1961 to standardize computer systems)
 - December 2009: the ECMAScript 5 standard is released.
 
 From 2016 to today, a new version of ECMAScript is released each year. The language has reached maturity and supports many modern constructs.
 
 Key features of JavaScript:
 
-- It is **imperative** & inspired by C
-  - `if`, `while`, `switch`, `while`, `do while`
-- It is **weakly typed**: it has types (`String`, `Number`, etc.) but uses implicit cast (`"1" - "1" === 0`).
-- It is **dynamically typed**: types are associated with values rather than expressions (a variable `x` can be associated with a `String`, then with a `Number`).
-- It supports **runtime evaluation** with `eval`. `eval('1 === 1')` evaluates to `true`
-- It supports **object orientation** with a very powerful prototype-based approach.
-- While it is not necessarily considered a pure functional language, its **functions are first-class citizen**. It supports closures and anonymous functions. As a result, it can be used to go pretty far with functional programming patterns.
-- It is very **concise**. Newer features such as arrow functions, object and array destructuring leads to very terse code with a very high signal to noise ration.
+- It is imperative & inspired by C
+  - if, while, switch, while, do while
+- It is weakly typed: it has types (String, Number, etc.) but uses implicit cast ("1" - "1" === 0).
+- It is dynamically typed: types are associated with values rather than expressions (a variable x can be associated with a String, then with a Number).
+- It supports runtime evaluation with eval. eval('1 === 1') evaluates to true
+- It supports object orientation with a very powerful prototype-based approach.
+- While it is not necessarily considered a pure functional language, its functions are first-class citizen. It supports closures and anonymous functions. As a result, it can be used to go pretty far with functional programming patterns.
+- It is very concise. Newer features such as arrow functions, object and array destructuring leads to very terse code with a very high signal to noise ration.
 
 ## Quirks
-
 ### Make sure your target browser supports the feature!
-
-Use [caniuse](https://caniuse.com/) to check what browser support the feature you're using. For instance, for `[1, 2].includes(1)` requires `Array.prototype.includes`:
+Use [caniuse](https://caniuse.com/) to check what browser support the feature you're using. For instance, for [1, 2].includes(1) requires Array.prototype.includes:
 
 ![caniuse](./img/caniuse.png)
 
@@ -126,7 +114,6 @@ Into:
 ```
 
 ### Undefined everywhere!
-
 ```javascript
 var a;
 // an uninitialized variable is undefined
@@ -149,7 +136,6 @@ console.assert(typeof anObject.nonExistent === "undefined");
 ```
 
 ### Printing and interacting with the console
-
 ```javascript
 // Do not leave console.log in your code!
 // There are linters such as eslint that will check for their absence
@@ -160,13 +146,12 @@ console.assert(true === true);
 ```
 
 ### Casting
-
 Rules for string conversion:
 
-- `String` are left as is.
-- `Number` are converted to their string representation.
-- Elements of `Array` are converted to string, then joined with commas `,`.
-- Objects are converted to `[object Object]` where `Object` is the constructor of the object.
+- String are left as is.
+- Number are converted to their string representation.
+- Elements of Array are converted to string, then joined with commas ,.
+- Objects are converted to [object Object] where Object is the constructor of the object.
 
 Can you guess how those will be converted?
 
@@ -205,8 +190,7 @@ NaN === NaN // false
 
 A good talk on the topic: [Wat](https://www.destroyallsoftware.com/talks/wat)
 
-#### Always use triple comparators (`===`) instead of double (`==`)
-
+#### Always use triple comparators (===) instead of double (==)
 ```javascript
 // Double equals will coerce values to make them comparable!
 console.assert("1" == 1);
@@ -217,8 +201,7 @@ console.assert("1" !== 1);
 ```
 
 ### Primitive types vs. reference types
-
-Applied on arrays and objects, `==` and `===` will check for object identity, which is almost never what you want.
+Applied on arrays and objects, == and === will check for object identity, which is almost never what you want.
 
 ```javascript
 console.assert({ a: 1 } != { a: 1 });
@@ -240,8 +223,7 @@ console.assert(_.isEqual({ a: 1 }, { a: 1 }));
 console.assert(_.isEqual([1, 2], [1, 2]));
 ```
 
-### `Object` and `Array` methods
-
+### Object and Array methods
 ```javascript
 // Use Object.assign (ES 2015) to copy objects
 const target = { a: 1, b: 1};
@@ -258,7 +240,6 @@ console.assert(theArray.includes(1))
 ```
 
 ## Prototypes in JavaScript
-
 JavaScript has a very powerful prototypal inheritance system that is very interesting to study.
 
 The truth is, it is much less used nowadays, and you don't really need to know it to develop with React. It also requires a bit of personal study to fully understand it. So we will leave it aside for now.
@@ -274,9 +255,7 @@ Some good articles:
 - [A Plain English Guide to JavaScript Prototypes](http://sporto.github.io/blog/2013/02/22/a-plain-english-guide-to-javascript-prototypes/)
 
 ## Object literals, assignment and destructuring
-
 ### Objects
-
 ```javascript
 const toaster = { size: 2, color: "red", brand: "NoName" };
 
@@ -358,7 +337,6 @@ console.assert(secondObject.hello() === "hello from second object");
 ```
 
 ### Array
-
 ```javascript
 const theArray = [1, 2, 3];
 const [first, second] = theArray;
@@ -369,8 +347,7 @@ console.assert(second === 2);
 console.assert(_.isEqualWith(rest, [3]));
 ```
 
-## `let` and `const`
-
+## let and const
 ```javascript
 const constantVar = "a";
 
@@ -397,23 +374,22 @@ constantObject = { a: 1 };
 console.log({ a });
 ```
 
-Note: try to use `const` as much as you can.
+Note: try to use const as much as you can.
 
 - Those variables can't be reassigned. More constraints leads to safer code.
-- You can't define a `const` without providing its initial value.
+- You can't define a const without providing its initial value.
 - Most people do this in modern JS.
 
-Never use `var`:
+Never use var:
 
-- `var` variables are initialized with `undefined`, while `let` and `const` vars are not initialized and will raise an error if used before definition.
-- `var` is globally or function-scoped, depending on whether it is used inside a function.
-- `let` and `const` are block-scoped
-- `let` and `const` cannot be reused for the same variable name
+- var variables are initialized with undefined, while let and const vars are not initialized and will raise an error if used before definition.
+- var is globally or function-scoped, depending on whether it is used inside a function.
+- let and const are block-scoped
+- let and const cannot be reused for the same variable name
 
 Future of JavaScript: [tc39/proposal-record-tuple: ECMAScript proposal for the Record and Tuple value types](https://github.com/tc39/proposal-record-tuple)
 
 ### Hoisting
-
 See [Hoisting on MDN](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
 
 ```javascript
@@ -435,7 +411,6 @@ console.log(a);
 ```
 
 ## Arrow functions
-
 The first advantage of arrow function is that they're shorter to write:
 
 ```javascript
@@ -465,12 +440,10 @@ const myFunctionToBeShortenedArrowV2 = (a) => a;
 console.assert(myFunctionToBeShortenedArrowV2(1) === 1);
 ```
 
-### How `this` works in arrow functions
-
+### How this works in arrow functions
 TODO
 
 ### Best practices
-
 I usually keep the parameters parenthesis. If you add a parameter and weren't including them, you'll have to add them back:
 
 ```javascript
@@ -482,7 +455,6 @@ const a3 = (arg) => {};
 ```
 
 ## Classes
-
 ```javascript
 class Toaster {
   constructor(color) {
@@ -515,13 +487,12 @@ console.assert(bunToaster.dring() === "dring dring");
 
 Those are my opinions about other class features:
 
-- Avoid using `static` methods, use plain functions instead.
+- Avoid using static methods, use plain functions instead.
 - Avoid using more than one level of inheritance.
-- Avoid using getter and setters (`get` and `set`).
+- Avoid using getter and setters (get and set).
 - Avoid using classes if you can.
 
 ## Template literals
-
 ```javascript
 const longString = `multi
 line
@@ -537,7 +508,6 @@ const hello2 = `Hello ${name === "Louis" ? name : "Noname"}`;
 ```
 
 ### Template tags
-
 They are used in some libraries, like Apollo and Styled Components.
 
 ```javascript
@@ -580,10 +550,8 @@ const Button = styled.a`
 You can see how template tags and arrow functions lead to more concise code!
 
 ## Loops
-
-### `for... of`
-
-Note: prefer using some functional constructs such as `map`, `reduce`, etc.
+### for... of
+Note: prefer using some functional constructs such as map, reduce, etc.
 
 ```javascript
 for (const i of [1, 2, 3]) {
@@ -598,15 +566,13 @@ for (const key in { a: "aaa", b: "bbb" }) {
 ```
 
 ## Promises
-
 This is only going to be an introduction to the magnificent world of promise.
 
 - Async functions (seen later) use promises as a building block.
 - Promise are indeed async in nature: the calling code continues executing the promise does its thing.
-- Some Web API return promises, including `Fetch`
+- Some Web API return promises, including Fetch
 
 ### Creating a promise
-
 Note: we use TypeScript in this example, to clarify what's return. You can ignore the type annotations for now.
 
 ```typescript
@@ -626,13 +592,9 @@ console.assert(thePromise === 'the work is done')
 TODO
 
 ### Consuming a promise
-
 ### Chaining promises
-
 ## Async functions
-
 ## Modules
-
 CommonJS syntax:
 
 ```javascript
@@ -646,7 +608,6 @@ import lodash from "lodash";
 ```
 
 ### Imports
-
 ```javascript
 // Import all and provide under name
 import * as toaster from "./toaster";
@@ -665,8 +626,7 @@ import createToaster from "./toaster";
 ```
 
 ### Exports
-
-In `toaster.js`:
+In toaster.js:
 
 ```javascript
 // Shorthand definition + export
@@ -686,9 +646,7 @@ export default createToaster;
 ```
 
 ## Other features
-
 ### Optional chaining
-
 ```javascript
 let nestedProp = obj.first && obj.first.second;
 
@@ -697,7 +655,6 @@ let nestedProp = obj.first?.second;
 ```
 
 ### Ternary operator
-
 ```javascript
 const a = 'a'
 const r = a === 'a' ? 'isA' : 'isNotA'
@@ -706,18 +663,17 @@ console.assert(r === 'isA')
 ```
 
 ## Self assessment
-
 - How old is JavaScript?
 - Is it a modern language?
 - Can we say that JavaScript does not have types?
-- What is the value of this expression: `"1" + "1"`? `3 + 2 + "5"`?
-- What should I use? `let`, `var`, or `const`?
+- What is the value of this expression: "1" + "1"? 3 + 2 + "5"?
+- What should I use? let, var, or const?
 - How do you add support for modern JS features in older browsers?
 - How are variables scoped in JavaScript?
 - What should you watch for when comparing variables in JavaScript?
-- `const a = [1]; const b = [1];`: what does `a == b` evaluates to?
+- const a = [1]; const b = [1];: what does a == b evaluates to?
 - How do you write arrow functions?
-- `const {a} = {a: 1}`: what does `a` evaluate to?
+- const {a} = {a: 1}: what does a evaluate to?
 - How do you write the ternary operator?
 
 Advanced:
@@ -732,9 +688,9 @@ console.assert(_.isEqual(transform1({name: "Bar"}), {Bar:1}))
 
 The three things you need:
 
-- Use `let` and `const`
-- Object destructuring `const { a } = {a: 1}`
-- Arrow functions `const noop = () => { }`
+- Use let and const
+- Object destructuring const { a } = {a: 1}
+- Arrow functions const noop = () => { }
 
 Other assessments:
 
@@ -742,7 +698,6 @@ Other assessments:
 - [70 JavaScript Interview Questions](https://dev.to/macmacky/70-javascript-interview-questions-5gfi), DEV
 
 ## References
-
 - [ES5 to ESNext — here’s every feature added to JavaScript since 2015](https://www.freecodecamp.org/news/es5-to-esnext-heres-every-feature-added-to-javascript-since-2015-d0c255e13c6e/)
 - [ES2015 / ES6: Basics of modern Javascript](https://www.slideshare.net/WojciechDzikowski/es2015-es6-basics-of-modern-javascript)
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript), Wikipedia
